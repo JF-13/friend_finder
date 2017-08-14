@@ -1,12 +1,11 @@
-var path = require("path");
+var path = require('path');
 
-module.export = function(app) {
+module.exports = function(app) {
 
-  app.get("/survey", function(req, res) {
+  app.get("/survey", function(req, res){
     res.sendFile(path.join(__dirname, "/../public/survey.html"));
   });
-
-  app.get("/*", function(req, res) {
+  app.use(function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/home.html"));
   });
 
